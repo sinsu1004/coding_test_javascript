@@ -1,16 +1,20 @@
 from sys import stdin
 
-
 n=int(stdin.readline())
-n_data=list(map(int,stdin.readline().split()))
+n_list=sorted(list(map(int,stdin.readline().split())))
 m=int(stdin.readline())
-m_data=list(map(int,stdin.readline().split()))
-data=[0]*m
-for i in range(m):
-    for j in range(n):
-        if n_data[j] == m_data[i]:
-            data[i]+=1
+m_list=list(map(int,stdin.readline().split()))
 
-for a in data:
-    print(a,end=" ")
+cnt={}
 
+for i in n_list:
+    if i in cnt:
+        cnt[i]+=1
+    else:
+        cnt[i]=1
+
+for i in m_list:
+    if i in cnt:
+        print(cnt[i],end=' ')
+    else:
+        print(0,end=' ')
