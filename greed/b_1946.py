@@ -1,5 +1,4 @@
 from sys import stdin
-
 input = stdin.readline
 
 t = int(input())
